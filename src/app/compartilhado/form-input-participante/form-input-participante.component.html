@@ -1,0 +1,99 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="nomeCompleto">Nome completo</label>
+        <input type="text"
+            [(ngModel)]="participante.nomeCompleto"
+            #nomeCompleto="ngModel"
+            [class.is-invalid]="!nomeCompleto.valid && nomeCompleto.touched"
+            name="nomeCompleto"
+            id="nomeCompleto"
+            class="form-control"
+            placeholder="Digite o seu nome completo." 
+        required>
+        <div *ngIf="!nomeCompleto.valid && nomeCompleto.touched" class="invalid-feedback">
+            Necessário informar o seu nome completo.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text"
+            [(ngModel)]="participante.cpf"
+            #cpf="ngModel"
+            [class.is-invalid]="!cpf.valid && cpf.touched"
+            name="cpf" 
+            id="cpf" 
+            class="form-control" 
+            placeholder="Apenas números." 
+        required>
+        <div *ngIf="!cpf.valid && cpf.touched" class="invalid-feedback">
+            Necessário informar o seu CPF.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="date"
+            [(ngModel)]="participante.dataNascimento"
+            #dataNascimento="ngModel"
+            [class.is-invalid]="!dataNascimento.valid && dataNascimento.touched"
+            name="dataNascimento" 
+            id="dataNascimento" 
+            class="form-control" 
+            placeholder="DD/MM/YYYY"
+        required>
+        <div *ngIf="!dataNascimento.valid && dataNascimento.touched" class="invalid-feedback">
+            Necessário informar a sua data de nascimento.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" 
+            [(ngModel)]="participante.email"
+            #email="ngModel"
+            [class.is-invalid]="!email.valid && email.touched"
+            name="email" 
+            id="email" 
+            class="form-control" 
+            placeholder="Digite seu e-mail" 
+        required>
+        <div *ngIf="!email.valid && email.touched" class="invalid-feedback">
+            Necessário informar o seu e-mail.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text" 
+            [(ngModel)]="participante.telefone"
+            #telefone="ngModel"
+            [class.is-invalid]="!telefone.valid && telefone.touched"
+            name="telefone" 
+            id="telefone" 
+            class="form-control" 
+            placeholder="XX XXXXX-XXXX"
+        required>
+        <div *ngIf="!telefone.valid && telefone.touched" class="invalid-feedback">
+            Necessário informar o seu número de telefone/celular.
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" 
+            [(ngModel)]="participante.senha"
+            #senha="ngModel"
+            [class.is-invalid]="!senha.valid && senha.touched"
+            class="form-control" 
+            name="senha"
+            id="senha" 
+            placeholder="Digite uma senha" 
+        required>
+        <div *ngIf="!senha.valid && senha.touched" class="invalid-feedback">
+            Necessário informar uma senha.
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+</form>
