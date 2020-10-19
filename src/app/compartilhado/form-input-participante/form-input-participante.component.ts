@@ -7,7 +7,7 @@ import { Participante } from '../../interfaces/participante';
   styleUrls: ['./form-input-participante.component.css']
 })
 export class FormInputParticipanteComponent {
-  @Input() participante: Participante = [] as unknown as Participante;
+  @Input() participante: Participante = {} as unknown as Participante;
   @Output() outputParticipante: EventEmitter<Participante> = new EventEmitter();
 
   onSubmit() {

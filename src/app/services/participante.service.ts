@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Participante } from '../interfaces/participante';
 
@@ -11,9 +11,13 @@ export class ParticipanteService {
 
   constructor(private http: HttpClient) { }
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   createParticipante(participante: Participante): Observable<Participante> {
     const url = `${environment.previdenciaApiUrl}/participantes`;
-    return this.http.post<Participante>(url, participante);
+    return this.http.post<Participante>(url, JSON.stringify(participante), this.httpOptions);
   }
 
   readParticipante(cpf: string): Observable<Participante> {

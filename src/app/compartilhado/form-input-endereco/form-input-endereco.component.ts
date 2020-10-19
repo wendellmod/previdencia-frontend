@@ -8,7 +8,7 @@ import { EnderecoService } from 'src/app/services/endereco.service';
   styleUrls: ['./form-input-endereco.component.css']
 })
 export class FormInputEnderecoComponent {
-  @Input() endereco: Endereco = [] as unknown as Endereco;
+  @Input() endereco: Endereco = {} as unknown as Endereco;
   @Output() outputEndereco: EventEmitter<Endereco> = new EventEmitter();
 
   constructor(private enderecoService: EnderecoService) {}
@@ -17,21 +17,21 @@ export class FormInputEnderecoComponent {
     this.outputEndereco.emit(this.endereco);
   }
 
-  getCep(cep, form) {
+  getCep(cep: string, form: any) {
     cep = cep.replace(/\D/g, '');
     if (cep != null && cep !== '') {
       this.enderecoService.readEnderecoApiViaCep(cep)
-      .subscribe(endereco => this.autoincrementa(endereco, form));
+        .subscribe(data => this.autoincrementa(data, form));
     }
   }
 
-  autoincrementa(endereco, formulario) {
+  autoincrementa(data: any, formulario: any) {
     formulario.form.patchValue({
       endereco: {
-        logradouro: endereco.logradouro,
-        bairro: endereco.bairro,
-        localidade: endereco.localidade,
-        uf: endereco.uf
+        logradouro: data.logradouro,
+        bairro: data.bairro,
+        localidade: data.localidade,
+        uf: data.uf
       }
     });
   }

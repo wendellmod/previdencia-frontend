@@ -14,6 +14,8 @@ import { UnicoEnderecoComponent } from './paginas/unico-endereco/unico-endereco.
 import { AlterarEnderecoComponent } from './paginas/alterar-endereco/alterar-endereco.component';
 import { FormInputParticipanteComponent } from './compartilhado/form-input-participante/form-input-participante.component';
 import { FormInputEnderecoComponent } from './compartilhado/form-input-endereco/form-input-endereco.component';
+import { TelaInicialComponent } from './paginas/tela-inicial/tela-inicial.component';
+import { EntrarComponent } from './paginas/entrar/entrar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FormInputEnderecoComponent } from './compartilhado/form-input-endereco/
     UnicoEnderecoComponent,
     AlterarEnderecoComponent,
     FormInputParticipanteComponent,
-    FormInputEnderecoComponent
+    FormInputEnderecoComponent,
+    TelaInicialComponent,
+    EntrarComponent
   ],
   imports: [
     BrowserModule,

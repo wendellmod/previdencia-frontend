@@ -3,7 +3,6 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Endereco } from '../interfaces/endereco';
-import { ViaCepEndereco } from '../interfaces/via-cep-endereco';
 
 @Injectable({
   providedIn: 'root'
