@@ -13,7 +13,6 @@ import { ParticipanteService } from 'src/app/services/participante.service';
 })
 export class CadastroEnderecoComponent {
   public participante: Participante = {} as Participante;
-  public endereco: Endereco = {} as Endereco;
   @ViewChild( ErrorMsgComponent, {static: true} ) errorMsgComponent: ErrorMsgComponent;
 
   constructor(private enderecoService: EnderecoService,
@@ -26,11 +25,13 @@ export class CadastroEnderecoComponent {
   readParticipante(cpf: string) {
     this.participanteService.readParticipante(cpf)
       .subscribe((participante: Participante) => {
+        console.log(participante);
         this.participante = participante;
       }, () => { this.errorMsgComponent.setError('Participante não encontrado'); });
   }
 
   createEndereco(endereco: Endereco, participante: Participante) {
+    console.log(endereco);
     this.enderecoService.createEndereco(endereco, participante)
       .subscribe(
         () => { this.router.navigateByUrl('/'); },

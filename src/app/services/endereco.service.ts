@@ -18,7 +18,9 @@ export class EnderecoService {
   }
 
   createEndereco(endereco: Endereco, participante: Participante): Observable<Endereco> {
-    const url = `${environment.previdenciaApiUrl}/participantes/${participante.cpf}/enderecos`;
+    console.log(participante);
+    const url = `${environment.previdenciaApiUrl}/participantes/${participante}/enderecos`;
+    console.log(url);
     return this.http.post<Endereco>(url, endereco);
   }
 
