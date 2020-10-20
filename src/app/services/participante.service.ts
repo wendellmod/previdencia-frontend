@@ -17,7 +17,7 @@ export class ParticipanteService {
 
   createParticipante(participante: Participante): Observable<Participante> {
     const url = `${environment.previdenciaApiUrl}/participantes`;
-    return this.http.post<Participante>(url, JSON.stringify(participante), this.httpOptions);
+    return this.http.post<Participante>(url, participante, this.httpOptions);
   }
 
   readParticipante(cpf: string): Observable<Participante> {

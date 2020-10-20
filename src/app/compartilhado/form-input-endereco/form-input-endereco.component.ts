@@ -8,7 +8,7 @@ import { EnderecoService } from 'src/app/services/endereco.service';
   styleUrls: ['./form-input-endereco.component.css']
 })
 export class FormInputEnderecoComponent {
-  @Input() endereco: Endereco = {} as unknown as Endereco;
+  @Input() endereco: Endereco = {} as Endereco;
   @Output() outputEndereco: EventEmitter<Endereco> = new EventEmitter();
 
   constructor(private enderecoService: EnderecoService) {}

@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Endereco } from '../interfaces/endereco';
+import { Participante } from '../interfaces/participante';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,8 @@ export class EnderecoService {
     return this.http.get(url);
   }
 
-  createEndereco(endereco: Endereco, cpf: string): Observable<Endereco> {
-    const url = `${environment.previdenciaApiUrl}/participantes/${cpf}/enderecos`;
+  createEndereco(endereco: Endereco, participante: Participante): Observable<Endereco> {
+    const url = `${environment.previdenciaApiUrl}/participantes/${participante.cpf}/enderecos`;
     return this.http.post<Endereco>(url, endereco);
   }
 
